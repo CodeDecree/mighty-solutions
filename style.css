@@ -66,6 +66,12 @@ span.carousel-control-next-icon{
  
 }
 
+.right-icon img {
+    height: 20rem;
+    width: auto;
+    opacity: 0.5;
+}
+
 .navbar {
     background-color: #212529;
 }
@@ -88,20 +94,23 @@ span.carousel-control-next-icon{
 .banner {
     height: 400px;
     padding: 10px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 5px;
     background: linear-gradient(to right, #212529,#373e45,#4c555e);
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
 }
 
 .banner .right-icon {
     float: right;
-    display: block;
-    opacity: 0.7;
+    display: flex;
+    align-items: center;
     width: 450px;
     max-width: 54%;
     height: auto;
     background-size: cover;
     background-position: left center;
     margin-right: 0;
-    margin-top: 5%;
 }
 
 .service-icons-container {
@@ -206,6 +215,29 @@ span.carousel-control-next-icon{
     padding-top: 0.5rem;
 }
 
+.containerr {
+    display: flex;
+    background-color: #4c555e;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 20px;
+    padding: 1rem;
+    padding-top: 2rem;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.l-content {
+    width: 50%;
+    display: inline;
+}
+
+.r-content {
+    width: 50%;
+    margin-left: 7rem;
+}
 
 .slide {
     position: relative;
@@ -227,6 +259,87 @@ span.carousel-control-next-icon{
     100% { left: 0; }
 }
 
+h5 {
+    font-weight: bold;
+}
 
+.career-container {
+    display: flex; justify-content: space-between; width: 100%;
+}
+
+.career-section-image {
+    overflow: hidden; width: 60%;
+}
+
+@media screen and (max-width: 700px) {
+    .service-icons-container {
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+
+    .service-img-container {
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    .containerr {
+        flex-direction: column;
+        margin-top: 1.5rem;
+    }
+
+    .sict {
+        width: 0%;
+        height: 0%;
+    }
+
+    .r-content {
+        width: 100%;
+        margin: 0;
+    }
+    .l-content {
+        width: 100%;
+        margin-bottom: 1.3rem;
+    }
+
+    .banner {
+        display: flex;
+    }
+
+    .banner .right-icon {
+        display: none;
+    }
+    .services-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .services-card-content {
+        align-items: center;
+    }
+
+    .services-card-r {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .career-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+    .career-section-image {
+        width: 100%;
+    }
+}
 
 
