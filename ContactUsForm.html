@@ -72,33 +72,43 @@
       </div>
     </form>
     <script>
+      function sendEmail(props) {
+        const recipient = "Info.mightysolutions@gmail.com";
+        const subject = props.subject;
+        const body = props.body;
+
+        const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoUrl;
+      }
+
       document.getElementById("my-foam").onsubmit = (e) => {
         e.preventDefault();
-        
-        let a = document.getElementById("my-foam");
-        
-        console.log(a);
-        let body = document.querySelectorAll(".message");
-        let mail = {
-            Subject : body[0].value,
-            Name : body[1].value,
-            SurName : body[2].value,
-            email  : body[3].value,
-            contact : body[4].value,
-            MailBody : body[5].value
-        };
-        
-        let messagebox = `
-        To Mighty Solutions,
-        ${mail.MailBody}
-        Regards,
-        ${mail.Name} ${mail.SurName}
-        ${mail.contact}
-        ${mail.email} `;
-        
-        let URL = 'mailto:Info.mightysolutions@gmail.com?subject='+mail.Subject+messagebox;
-        console.log(URL);
-      };
+
+        let obj = document.querySelectorAll(".message");
+
+        let subjec = obj[0].value;
+        let name = obj[1].value+' '+obj[2].value;
+        let mail = obj[3].value;
+        let number = obj[4].value;
+        let paragraph = obj[5].value;
+        let mailbody = 
+`Dear Mighty Solutions,
+${paragraph}
+Regards,
+${name},
++91-${number}
+`;
+        let props = {
+          subject : subjec,
+          body: mailbody
+        }
+        console.log(obj);
+
+        sendEmail(props);
+      }
     </script>
   </body>
 </html>
