@@ -277,6 +277,16 @@ h5 {
 
 @media screen and (max-width: 700px) {
 
+    .hide-mighty-solution-text {
+        display: block;
+        width: 0%;
+        height: 0%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+
     .hide {
         display: block;
     }
