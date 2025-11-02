@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic Management System | Mighty Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      /* background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); */
+      min-height: 100vh;
+    }
+    
+    .page-header {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 3rem 0;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .page-header h1 {
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .page-header p {
+      color: #546e7a;
+      font-size: 1.1rem;
+    }
+    
+    .product-card {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      border-color: #38ef7d;
+    }
+    
+    .product-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      min-height: 300px;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(56, 239, 125, 0.9);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .product-content {
+      padding: 2rem;
+    }
+    
+    .product-content h4 {
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .product-content p {
+      color: #546e7a;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-list li {
+      color: #37474f;
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .feature-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #38ef7d;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .btn-contact {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      border: none;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(56, 239, 125, 0.4);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .product-image-wrapper {
+        min-height: 250px;
+      }
+    }
+  </style>
+
+<nav class="navbar navbar-expand-lg py-4 bg-dark">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <img
+        src="/images/MS logo.jpg"
+        alt="Mighty Solutions Logo"
+        style="height: 4rem; margin-right: 1rem; border-radius: 50%;"
+      />
+      <a class="text-white navbar-brand fw-bold fs-3" href="./index.html">Mighty Solutions</a>
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="text-white nav-link me-2" href="./index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="text-white nav-link" href="./Services.html">Services</a>
+        </li>
+
+        <li class="nav-item me-2">
+          <a class="text-white nav-link" href="./Careers.html">Careers</a>
+        </li>
+
+        <li class="nav-item me-2">
+          <a class="text-white nav-link" href="./About.html">About</a>
+        </li>
+
+        <li class="nav-item dropdown me-2">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="./toll-system.html"
+            id="tollDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Toll System
+          </a>
+          <ul class="dropdown-menu bg-dark border-0" aria-labelledby="tollDropdown">
+            <li><h6 class="dropdown-header text-info">Toll and Traffic Light System</h6></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#fog-light">Fog Light</a></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#overhead-signal">Over Head Signal</a></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#traffic-light">Red and Green Toll Plaza Traffic Light</a></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#solar-blinker">Solar Blinker and Solar Sign Board</a></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#power-blinker">Power Cross Blinker</a></li>
+            <li><a class="dropdown-item text-white" href="./toll-system.html#boom-barrier">Boom Barrier</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown me-2">
+          <a
+            class="nav-link dropdown-toggle text-white active"
+            href="./traffic-management.html"
+            id="trafficDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Traffic Management System
+          </a>
+          <ul class="dropdown-menu bg-dark border-0" aria-labelledby="trafficDropdown">
+            <li><a class="dropdown-item text-white" href="#traffic-light">Traffic Light (All Types) with Controller</a></li>
+            <li><a class="dropdown-item text-white" href="#countdown-timer">Reverse Countdown Timer</a></li>
+            <li><a class="dropdown-item text-white" href="#pedestrian-light">Pedestrian Light</a></li>
+            <li><a class="dropdown-item text-white" href="#speed-radar">Smart Speed Radar Sign (SSRS)</a></li>
+            <li><a class="dropdown-item text-white" href="#radar-camera">Radar Speed Display + Camera</a></li>
+            <li><a class="dropdown-item text-white" href="#portable-vms">Portable VMS</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form class="d-flex d-none d-md-block" role="search">
+        <div class="button">
+          <a href="./ContactUsForm.html" class="btn btn-outline-info px-4">Contact Us!</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+
+  .dropdown-item:hover {
+    background-color: #0dcaf0;
+    color: #000 !important;
+  }
+
+  .navbar-dark .navbar-toggler-icon,
+  .bg-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255,255,255,.1);
+  }
+</style>
+</head>
+<body>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container text-center">
+      <h1>Intelligent Traffic Management Systems</h1>
+      <p>Advanced Solutions for Safer, Smarter Road Networks</p>
+    </div>
+  </div>
+
+  <div class="container pb-5">
+
+    <!-- Traffic Light with Controller -->
+    <div class="row product-card" id="traffic-light">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1472120435266-53107fd0c44a?q=80&w=800" alt="LED Traffic Signal Light with Intelligent Controller" class="product-image" />
+          <span class="product-badge">Smart Control</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Traffic Light (All Types) with Controller</h4>
+        <p>
+          State-of-the-art LED traffic signal systems equipped with intelligent microprocessor-based controllers designed for seamless traffic flow management at intersections. These systems feature programmable sequences that adapt to traffic variations throughout the day and week, with synchronization capabilities across multiple junctions for coordinated green waves.
+        </p>
+        <ul class="feature-list">
+          <li>200mm, 300mm, and 400mm LED signal heads available</li>
+          <li>Hour-wise and day-wise programmable sequences</li>
+          <li>Junction synchronization for coordinated traffic flow</li>
+          <li>Central monitoring via GPRS/GSM connectivity</li>
+          <li>Auto/Flash/Manual mode operations</li>
+          <li>Controls up to 32 outputs per junction</li>
+          <li>Real-time failure reporting and remote configuration</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="row product-card" id="countdown-timer">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?q=80&w=800" alt="Traffic Signal Countdown Timer Display" class="product-image" />
+          <span class="product-badge">Driver Awareness</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Traffic Signal Countdown Timer</h4>
+        <p>
+          Digital countdown timer displays that show the remaining time for current traffic signal indications (red, green, yellow). These intelligent devices improve driver decision-making at intersections by eliminating the dilemma zone, allowing drivers to know exactly when signals will change. Studies show countdown timers reduce start-up time losses by an average of 0.82 seconds, significantly improving intersection efficiency.
+        </p>
+        <ul class="feature-list">
+          <li>Available in 6", 8", 12", and 15" digit sizes</li>
+          <li>Dual color display: Red and Green LED segments</li>
+          <li>Count range: 00-99 (double digit) or 000-999 (triple digit)</li>
+          <li>Visibility range up to 400 meters</li>
+          <li>Operating voltage: 220V/110V AC or 12V/24V DC</li>
+          <li>Temperature range: -20°C to +60°C</li>
+          <li>UV-stabilized polycarbonate housing with IP65 rating</li>
+          <li>Auto-sensing with 2-3 cycle validation</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+    <!-- Pedestrian Light -->
+    <div class="row product-card" id="pedestrian-light">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Pedestrian Crossing Signal Light" class="product-image" />
+          <span class="product-badge">Pedestrian Safety</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Pedestrian Crossing Signal Light</h4>
+        <p>
+          LED-based pedestrian signal heads designed to assist walkers at intersections and crosswalks with clear walk/don't walk indications. These signals feature high-contrast walking man (green) and raised hand (red) symbols visible from extended distances, ensuring pedestrian safety at busy intersections, school zones, and shopping areas.
+        </p>
+        <ul class="feature-list">
+          <li>200mm and 300mm diameter options available</li>
+          <li>White walking symbol and red/orange hand indication</li>
+          <li>Imported LED chips with 100,000+ hour lifespan</li>
+          <li>Constant current driver for uniform brightness</li>
+          <li>Visible range: 200-500 meters</li>
+          <li>Multi-ply sealed waterproof design (IP54 rating)</li>
+          <li>Operating temperature: -40°C to +75°C</li>
+          <li>Compliant with GB14887-2006, EN50293:2000 standards</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+    <!-- Smart Speed Radar Sign -->
+    <div class="row product-card" id="speed-radar">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=800" alt="Smart Speed Radar Detection Sign" class="product-image" />
+          <span class="product-badge">Speed Control</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Smart Speed Radar Sign (SSRS)</h4>
+        <p>
+          Advanced radar-based speed detection systems featuring large LED displays that show real-time vehicle speed to approaching drivers. These intelligent signs use Doppler effect radar technology to encourage voluntary speed compliance, reducing speeding incidents by providing immediate visual feedback. Ideal for school zones, residential areas, and accident-prone stretches of highway.
+        </p>
+        <ul class="feature-list">
+          <li>Radar sensors with Doppler effect technology</li>
+          <li>High-brightness LED display (39cm digit height)</li>
+          <li>Solar-powered option for autonomous operation</li>
+          <li>Real-time speed detection and instant display</li>
+          <li>Variable message capability: "Slow Down" alerts</li>
+          <li>Weather-resistant protective coatings and housing</li>
+          <li>IoT sensors for remote monitoring and maintenance</li>
+          <li>Detection range: 50-500 meters depending on configuration</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+    <!-- Radar Speed Display + Camera -->
+    <div class="row product-card" id="radar-camera">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800" alt="Radar Speed Enforcement Camera System" class="product-image" />
+          <span class="product-badge">Enforcement</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Radar Speed Display + Camera System</h4>
+        <p>
+          Integrated speed violation detection system combining 4D imaging radar technology with HD ANPR (Automatic Number Plate Recognition) cameras for comprehensive traffic enforcement. These systems capture high-resolution images of speeding vehicles along with license plate data, enabling automated challan generation and evidence-based enforcement to reduce traffic crashes caused by reckless driving.
+        </p>
+        <ul class="feature-list">
+          <li>4D imaging radar for precise speed measurement</li>
+          <li>HD ANPR camera for license plate capture</li>
+          <li>Measures speed, direction, range, and vertical/horizontal angles</li>
+          <li>Real-time violation detection and documentation</li>
+          <li>AI-powered traffic congestion analysis</li>
+          <li>Automated challan generation capability</li>
+          <li>Day and night operation with IR illumination</li>
+          <li>Integration with central traffic management systems</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+    <!-- Portable VMS -->
+    <div class="row product-card" id="portable-vms">
+      <div class="col-md-5 p-0">
+        <div class="product-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800" alt="Portable Variable Message Sign Board" class="product-image" />
+          <span class="product-badge">Dynamic Messaging</span>
+        </div>
+      </div>
+      <div class="col-md-7 product-content">
+        <h4>Portable Variable Message Sign (VMS)</h4>
+        <p>
+          Mobile LED display boards designed for temporary deployments along roadways, highways, and construction zones. These intelligent signs provide real-time traffic information, weather alerts, lane closure notifications, and emergency messages to drivers. With wireless connectivity (GSM/Wi-Fi/cloud-based), messages can be updated remotely and instantly, making them ideal for dynamic traffic management and event coordination.
+        </p>
+        <ul class="feature-list">
+          <li>Full-graphic LED display with text, symbols, and animations</li>
+          <li>Multi-language messaging support</li>
+          <li>Wireless remote control (GSM, Wi-Fi, cloud-based)</li>
+          <li>Real-time message updates from any location</li>
+          <li>Portable trailer-mounted or standalone configurations</li>
+          <li>Solar panel option for off-grid operation</li>
+          <li>High-brightness display visible day and night</li>
+          <li>Weatherproof enclosure for all-climate operation</li>
+          <li>Ideal for construction zones, events, and emergencies</li>
+        </ul>
+        <a href="ContactUsForm.html" class="btn-contact">Contact for Pricing</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container text-center">
+      <h3 class="mb-3">Mighty Solutions</h3>
+      <p class="mb-1">
+        <strong>Address:</strong> B-2A 1st Floor, 60 Futta Road Pul Prahaladpur, New Delhi-110044
+      </p>
+      <p class="mb-1">
+        <strong>Email:</strong> Info.mightysolutions@gmail.com
+      </p>
+      <p class="mb-3">
+        <strong>Contact:</strong> 9911151133, 9810182169
+      </p>
+      <div class="social mt-4">
+        <a href="#" class="text-white mx-3"><i class="fa-brands fa-instagram fa-2x"></i></a>
+        <a href="#" class="text-white mx-3"><i class="fa-brands fa-facebook fa-2x"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/3b75cf6316.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
